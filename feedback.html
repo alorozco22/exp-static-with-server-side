@@ -4,17 +4,17 @@
 	<title>Mensaje Alf</title>
 	<link rel="stylesheet" type="text/css" href="./form.css"/>
 	<link rel="stylesheet" type="text/css" href="./responsive.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<meta charset="UTF-8">
 
 	<script type="text/javascript">
-		const Http = new XMLHttpRequest();
-		const url='http://mensajesalfre.herokuapp.com/feedback';
-		Http.open("GET", url);
-		Http.send();
 
-		Http.onreadystatechange = (e) => {
-		  document.getElementById('Feedback').innerHTML = Http.responseText;
-		}
+		const url='http://mensajesalfre.herokuapp.com/feedback';
+		$( document ).ready(function() {
+		    $.get(url, function(data, status){
+		    	document.getElementById('Feedback').innerHTML = `${data}`;
+		    });
+		});
 	</script>
 
 </head>
