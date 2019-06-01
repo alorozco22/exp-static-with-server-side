@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mensaje Alf</title>
+	<link rel="stylesheet" type="text/css" href="./form.css"/>
+	<link rel="stylesheet" type="text/css" href="./responsive.css"/>
+	<meta charset="UTF-8">
+
+	<script type="text/javascript">
+		const Http = new XMLHttpRequest();
+		const url='http://mensajesalfre.herokuapp.com/feedback';
+		Http.open("GET", url);
+		Http.send();
+
+		Http.onreadystatechange = (e) => {
+		  document.getElementById('Feedback').innerHTML = Http.responseText;
+		}
+	</script>
+
+</head>
+<body>
+	<div class="row">
+		<div class="col-1"></div>
+		<div class="col-10">
+			<h1 id = "Feedback">Esperando respuesta ...</h1>
+		</div>
+		<div class="col-1"></div>
+	</div>
+</body>
+</html>
